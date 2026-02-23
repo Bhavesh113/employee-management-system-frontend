@@ -24,9 +24,8 @@ let[designation,setdesignation] = useState("");
 let[reportingmanager,setreportingmanager] = useState("");
 let[status,setstatus] = useState("");
 let[worklocation,setworklocation] = useState("");
-let [errors, setErrors] = useState({});
 
-let app=process.env.REACT_APP_SERVER_IP;
+
 
 let handleprofile=(event)=>{
     let file=event.target.files[0]
@@ -37,7 +36,7 @@ let handleprofile=(event)=>{
 }
  let validation=()=>{
 
-          if(firstname==""||lastname==""||email==""||gender==""||contactno==""||address==""||panno==""||adharno==""||dob==""){
+          if(firstname===""||lastname===""||email===""||gender===""||contactno===""||address===""||panno===""||adharno===""||dob===""){
             alert("Please fill all the personal details")
             return false;
           }
@@ -80,16 +79,16 @@ let handleprofile=(event)=>{
 
 let addemp=(event)=>{
     event.preventDefault();
-    //  if(validation)
-    //     {
-    //       alert("Employee Added successfully..")
-    //     }
+     if(validation)
+        {
+          alert("Employee Added successfully..")
+        }
     let employee={firstname,middlename,lastname,email,gender,
         dob,contactno,adharno,panno,address,profile,exp,
         salary,joiningdate,department,designation,reportingmanager,status,worklocation}
     axios.post("https://employee-management-system-backend-1-dd4q.onrender.com/addemp",employee)
     .then((response)=>{
-        if(response.data=="Employee record added Sucessfully"){
+        if(response.data==="Employee record added Sucessfully"){
             alert(response.data)
         }
 
@@ -274,7 +273,7 @@ let addemp=(event)=>{
               </div>
               <div className="col-md-4 mb-3">
                 <label>Profile preview</label>
-                <img src={profile} style={{"height":"150px"}}></img>
+                <img src={profile} alt="Profile Preview" style={{ height: "150px" }} />
               </div>
             </div>
             <div className="text-center mt-3">

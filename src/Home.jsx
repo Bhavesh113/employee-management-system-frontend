@@ -10,7 +10,7 @@ export default function Home() {
   
   return (
     <div>
-     {!loggedin && location.pathname=="/"?<HomeNav></HomeNav>:null}
+     {!loggedin && location.pathname==="/"?<HomeNav></HomeNav>:null}
           
       <div
         id="carouselExampleCaptions"

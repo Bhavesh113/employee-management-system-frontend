@@ -27,7 +27,6 @@ export default function GetEmployee() {
     let [reportingmanager, setreportingmanager] = useState("");
     let [status, setstatus] = useState("");
     let [worklocation, setworklocation] = useState("");
-    let [errors, setErrors] = useState({});
 
     //searching variables
     let[searchby,setsearchby]=useState("");
@@ -36,7 +35,7 @@ export default function GetEmployee() {
 
 
     useEffect(() => {
-        axios.get("http://localhost:8080/findallemp")
+        axios.get("https://employee-management-system-backend-1-dd4q.onrender.com/findallemp")
             .then((response) => {
                 setEmployee(response.data);
             })
@@ -47,7 +46,7 @@ export default function GetEmployee() {
 
     let deleteemp = (empid) => {
     
-        axios.delete(`http://localhost:8080/deletebyempid?empid=${empid}`)
+        axios.delete(`https://employee-management-system-backend-1-dd4q.onrender.com/deletebyempid?empid=${empid}`)
             .then((response) => {
                 if (response.data === "Employee record deleted Sucessfully") {
                     alert(response.data)
@@ -110,13 +109,13 @@ export default function GetEmployee() {
     }
     let searchemployee=()=>{
         let url;
-        if(searchby=="firstname"){
+        if(searchby==="firstname"){
             url=`https://employee-management-system-backend-1-dd4q.onrender.com/findbyfirstname?firstname=${keyword}`
         }
-        else if(searchby=="lastname"){
+        else if(searchby==="lastname"){
             url=`https://employee-management-system-backend-1-dd4q.onrender.com/findbylastname?lastname=${keyword}`
         }
-        else if(searchby=="department"){
+        else if(searchby==="department"){
             url=`https://employee-management-system-backend-1-dd4q.onrender.com/findbydepartment?department=${keyword}`
         }
         else{
@@ -125,7 +124,7 @@ export default function GetEmployee() {
         axios.get(url)
         .then((response)=>{
             //response.data
-            if(response.data.length==0){
+            if(response.data.length===0){
                 alert(`No matching record found for given ${searchby}`)
                 setsearchresult([])
                 setreload(!reload);
