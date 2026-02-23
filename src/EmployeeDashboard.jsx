@@ -1,7 +1,6 @@
 import axios from 'axios';
 import React, { useState } from 'react'
 import { useEffect } from 'react';
-import EmpNav from './EmpNav';
 
 
 export default function EmployeeDashboard() {
