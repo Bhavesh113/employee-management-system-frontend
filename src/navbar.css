@@ -1,0 +1,20 @@
+.navbar{
+    padding: 10px 20px;
+}
+
+.nav-item .nav-link{
+    font-size: 18px;
+    color: white;
+    font-weight: 500;
+    margin-right: 12px;
+}
+
+.nav-item .nav-link:hover{
+    color: black;
+}
+
+.navbar-brand{
+    font-size: 22px;
+    font-weight: 700;
+    color: white !important;
+}
